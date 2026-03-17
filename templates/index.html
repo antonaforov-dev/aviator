@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avitor</title>
+  <title>Avitor Mega Update</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
   <div class="game-wrapper">
@@ -13,18 +14,22 @@
         <div class="logo">A</div>
         <div>
           <div class="brand">AVITOR</div>
-          <div class="sub">demo mode</div>
+          <div class="sub">mega update</div>
         </div>
       </div>
 
-      <div class="top-right">
-        <button id="addCoinsBtn" class="green-btn">+1000 монет</button>
+      <div class="promo-box">
+        <input type="text" id="promoInput" class="promo-input" placeholder="Введите промокод" maxlength="24" autocomplete="off" />
+        <button id="promoBtn" class="promo-btn">Активировать</button>
       </div>
     </header>
 
     <main class="game-layout">
-      <section class="sky-panel">
+      <section class="game-column">
+        <section class="sky-panel">
         <div class="sky" id="sky">
+          <div class="weather-layer" id="weatherLayer"></div>
+
           <div class="flight-stats top">
             <div class="flight-stat">
               <div class="flight-label">ВЫСОТА</div>
@@ -41,7 +46,6 @@
           </div>
 
           <div class="stars"></div>
-
           <div class="cloud cloud-1"></div>
           <div class="cloud cloud-2"></div>
           <div class="cloud cloud-3"></div>
@@ -52,7 +56,7 @@
           <div class="sea"></div>
           <div class="sea-reflection"></div>
 
-          <div class="carrier" id="carrier">
+          <div class="carrier skin-carrier-standard" id="carrier">
             <div class="ship-body"></div>
             <div class="ship-bow"></div>
             <div class="ship-runway"></div>
@@ -69,7 +73,7 @@
           <div class="plane-trail" id="planeTrail"></div>
           <div class="boost-flames" id="boostFlames"></div>
 
-          <div class="plane" id="plane">
+          <div class="plane skin-plane-classic" id="plane">
             <div class="plane-shadow"></div>
             <div class="plane-fuselage"></div>
             <div class="plane-nose"></div>
@@ -84,18 +88,47 @@
           </div>
 
           <div class="bottom-boost-bar" id="bottomBoostBar">
-            <div class="boost-coin">
-              <span class="boost-coin-icon">⚡</span>
-            </div>
-
+            <div class="boost-coin"><span class="boost-coin-icon">⚡</span></div>
             <div class="boost-cost-pill" id="boostCostPill">500</div>
-
             <div class="boost-progress-shell">
               <div class="boost-progress-fill" id="boostProgressFill"></div>
             </div>
-
             <div class="boost-timer-main" id="boostTimerMain">2.0s</div>
             <div class="boost-timer-side" id="boostCooldownSide">ready</div>
+          </div>
+
+          <div class="turbo-indicator" id="turboIndicator">TURBO</div>
+        </div>
+        </section>
+
+        <div class="tabs-card shop-below-field">
+          <div class="tabs-row">
+            <button class="tab-btn active" data-tab="shopTab">Магазин</button>
+            <button class="tab-btn" data-tab="achTab">Достижения</button>
+            <button class="tab-btn" data-tab="historyTab">История</button>
+          </div>
+
+          <div id="shopTab" class="tab-content active">
+            <div class="shop-section">
+              <div class="shop-title">Самолёты</div>
+              <div class="shop-grid" id="planeShop"></div>
+            </div>
+            <div class="shop-section">
+              <div class="shop-title">Авианосцы</div>
+              <div class="shop-grid" id="carrierShop"></div>
+            </div>
+            <div class="shop-section">
+              <div class="shop-title">Следы</div>
+              <div class="shop-grid" id="trailShop"></div>
+            </div>
+          </div>
+
+          <div id="achTab" class="tab-content">
+            <div class="ach-list" id="achievementsList"></div>
+          </div>
+
+          <div id="historyTab" class="tab-content">
+            <div class="history-list" id="historyList"></div>
           </div>
         </div>
       </section>
@@ -126,17 +159,36 @@
         </div>
 
         <div class="stat-card">
+          <div class="label">Погода</div>
+          <div class="value small" id="weatherValue">clear</div>
+        </div>
+
+        <div class="stat-card">
           <div class="label">Статус</div>
           <div class="value small" id="status">Готов к взлёту</div>
         </div>
 
         <div class="action-row two-btns">
           <button id="startBtn" class="start-btn">Старт</button>
-          <button id="boostBtn" class="boost-btn">Boost (500)</button>
+          <button id="boostBtn" class="boost-btn">Boost</button>
         </div>
+
+        <div class="action-row three-btns">
+          <button id="turboBtn" class="turbo-btn">Turbo</button>
+          <button id="weatherBtn" class="secondary-btn">Сменить погоду</button>
+          <button id="soundBtn" class="secondary-btn">Звук: ON</button>
+        </div>
+
+        <div class="boost-panel-card">
+          <div class="boost-panel-title">Бусты</div>
+          <div class="boost-panel-grid" id="boostPanelGrid"></div>
+        </div>
+
       </section>
     </main>
   </div>
+
+  <div class="toast" id="toast"></div>
 
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
