@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avitor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="game-wrapper">
+    <header class="topbar">
+      <div class="logo-block">
+        <div class="logo">A</div>
+        <div>
+          <div class="brand">AVITOR</div>
+          <div class="sub">demo mode</div>
+        </div>
+      </div>
+
+      <div class="top-right">
+        <button id="addCoinsBtn" class="green-btn">+1000 монет</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="sky-panel">
+        <div class="sky" id="sky">
+          <div class="logo-fade">AVITOR</div>
+
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="cloud cloud-3"></div>
+          <div class="cloud cloud-4"></div>
+
+          <div class="sea"></div>
+
+          <div class="carrier" id="carrier">
+            <div class="carrier-deck"></div>
+            <div class="carrier-runway"></div>
+            <div class="carrier-island"></div>
+            <div class="carrier-tower-2"></div>
+          </div>
+
+          <div class="plane-trail" id="planeTrail"></div>
+
+          <div class="plane" id="plane">
+            <div class="plane-body"></div>
+            <div class="plane-cockpit"></div>
+            <div class="plane-wing plane-wing-top"></div>
+            <div class="plane-wing plane-wing-bottom"></div>
+            <div class="plane-tail"></div>
+            <div class="plane-tail-wing"></div>
+            <div class="plane-prop"></div>
+            <div class="plane-wheel plane-wheel-1"></div>
+            <div class="plane-wheel plane-wheel-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hud">
+        <div class="stat-card">
+          <div class="label">Баланс</div>
+          <div class="value" id="balance">10000</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="label">Ставка</div>
+          <div class="bet-controls">
+            <button id="betMinus" class="mini-btn">−</button>
+            <div class="value" id="bet">100</div>
+            <button id="betPlus" class="mini-btn">+</button>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="label">Множитель</div>
+          <div class="value" id="multiplier">x1.00</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="label">Текущий выигрыш</div>
+          <div class="value" id="potentialWin">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="label">Статус</div>
+          <div class="value small" id="status">Готов к взлёту</div>
+        </div>
+
+        <div class="action-row one-btn">
+          <button id="startBtn" class="start-btn">Старт</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
