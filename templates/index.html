@@ -25,34 +25,77 @@
     <main class="game-layout">
       <section class="sky-panel">
         <div class="sky" id="sky">
-          <div class="logo-fade">AVITOR</div>
+          <div class="flight-stats top">
+            <div class="flight-stat">
+              <div class="flight-label">ВЫСОТА</div>
+              <div class="flight-value" id="heightValue">0,0m</div>
+            </div>
+            <div class="flight-stat">
+              <div class="flight-label">РАССТОЯНИЕ</div>
+              <div class="flight-value" id="distanceValue">0,0m</div>
+            </div>
+            <div class="flight-stat multiplier-stat" id="multiplierStat">
+              <div class="flight-label">МНОЖИТЕЛЬ</div>
+              <div class="flight-value" id="fieldMultiplierValue">x1,0</div>
+            </div>
+          </div>
+
+          <div class="stars"></div>
 
           <div class="cloud cloud-1"></div>
           <div class="cloud cloud-2"></div>
           <div class="cloud cloud-3"></div>
           <div class="cloud cloud-4"></div>
+          <div class="cloud cloud-5"></div>
 
+          <div class="horizon-glow"></div>
           <div class="sea"></div>
+          <div class="sea-reflection"></div>
 
           <div class="carrier" id="carrier">
-            <div class="carrier-deck"></div>
-            <div class="carrier-runway"></div>
-            <div class="carrier-island"></div>
-            <div class="carrier-tower-2"></div>
+            <div class="ship-body"></div>
+            <div class="ship-bow"></div>
+            <div class="ship-runway"></div>
+            <div class="ship-island"></div>
+            <div class="ship-bridge"></div>
+            <div class="ship-radar"></div>
+            <div class="ship-crates crate-1"></div>
+            <div class="ship-crates crate-2"></div>
+            <div class="ship-crates crate-3"></div>
+            <div class="ship-light"></div>
+            <div class="ship-wake"></div>
           </div>
 
           <div class="plane-trail" id="planeTrail"></div>
+          <div class="boost-flames" id="boostFlames"></div>
 
           <div class="plane" id="plane">
-            <div class="plane-body"></div>
+            <div class="plane-shadow"></div>
+            <div class="plane-fuselage"></div>
+            <div class="plane-nose"></div>
             <div class="plane-cockpit"></div>
-            <div class="plane-wing plane-wing-top"></div>
-            <div class="plane-wing plane-wing-bottom"></div>
+            <div class="plane-wing-top"></div>
+            <div class="plane-wing-bottom"></div>
             <div class="plane-tail"></div>
-            <div class="plane-tail-wing"></div>
-            <div class="plane-prop"></div>
+            <div class="plane-tail-fin"></div>
             <div class="plane-wheel plane-wheel-1"></div>
             <div class="plane-wheel plane-wheel-2"></div>
+            <div class="plane-propeller"></div>
+          </div>
+
+          <div class="bottom-boost-bar" id="bottomBoostBar">
+            <div class="boost-coin">
+              <span class="boost-coin-icon">⚡</span>
+            </div>
+
+            <div class="boost-cost-pill" id="boostCostPill">500</div>
+
+            <div class="boost-progress-shell">
+              <div class="boost-progress-fill" id="boostProgressFill"></div>
+            </div>
+
+            <div class="boost-timer-main" id="boostTimerMain">2.0s</div>
+            <div class="boost-timer-side" id="boostCooldownSide">ready</div>
           </div>
         </div>
       </section>
@@ -87,8 +130,9 @@
           <div class="value small" id="status">Готов к взлёту</div>
         </div>
 
-        <div class="action-row one-btn">
+        <div class="action-row two-btns">
           <button id="startBtn" class="start-btn">Старт</button>
+          <button id="boostBtn" class="boost-btn">Boost (500)</button>
         </div>
       </section>
     </main>
