@@ -17,7 +17,6 @@
           <div class="sub">mega update</div>
         </div>
       </div>
-
       <div class="promo-box">
         <input type="text" id="promoInput" class="promo-input" placeholder="Введите промокод" maxlength="24" autocomplete="off" />
         <button id="promoBtn" class="promo-btn">Активировать</button>
@@ -27,78 +26,35 @@
     <main class="game-layout">
       <section class="game-column">
         <section class="sky-panel">
-        <div class="sky" id="sky">
-          <div class="weather-layer" id="weatherLayer"></div>
-
-          <div class="flight-stats top">
-            <div class="flight-stat">
-              <div class="flight-label">ВЫСОТА</div>
-              <div class="flight-value" id="heightValue">0,0m</div>
+          <div class="sky" id="sky">
+            <div class="weather-layer" id="weatherLayer"></div>
+            <div class="flight-stats top">
+              <div class="flight-stat"><div class="flight-label">ВЫСОТА</div><div class="flight-value" id="heightValue">0,0m</div></div>
+              <div class="flight-stat"><div class="flight-label">РАССТОЯНИЕ</div><div class="flight-value" id="distanceValue">0,0m</div></div>
+              <div class="flight-stat multiplier-stat" id="multiplierStat"><div class="flight-label">МНОЖИТЕЛЬ</div><div class="flight-value" id="fieldMultiplierValue">x1,0</div></div>
             </div>
-            <div class="flight-stat">
-              <div class="flight-label">РАССТОЯНИЕ</div>
-              <div class="flight-value" id="distanceValue">0,0m</div>
+            <div class="stars"></div>
+            <div class="cloud cloud-1"></div><div class="cloud cloud-2"></div><div class="cloud cloud-3"></div><div class="cloud cloud-4"></div><div class="cloud cloud-5"></div>
+            <div class="horizon-glow"></div><div class="sea"></div><div class="sea-reflection"></div>
+            <div class="event-banner" id="eventBanner">Событие</div>
+            <div class="carrier skin-carrier-standard" id="carrier">
+              <div class="ship-body"></div><div class="ship-bow"></div><div class="ship-runway"></div><div class="ship-island"></div><div class="ship-bridge"></div><div class="ship-radar"></div>
+              <div class="ship-crates crate-1"></div><div class="ship-crates crate-2"></div><div class="ship-crates crate-3"></div><div class="ship-light"></div><div class="ship-wake"></div>
             </div>
-            <div class="flight-stat multiplier-stat" id="multiplierStat">
-              <div class="flight-label">МНОЖИТЕЛЬ</div>
-              <div class="flight-value" id="fieldMultiplierValue">x1,0</div>
+            <div class="plane-trail" id="planeTrail"></div>
+            <div class="boost-flames" id="boostFlames"></div>
+            <div class="plane skin-plane-classic" id="plane">
+              <div class="plane-shadow"></div><div class="plane-fuselage"></div><div class="plane-nose"></div><div class="plane-cockpit"></div><div class="plane-wing-top"></div><div class="plane-wing-bottom"></div><div class="plane-tail"></div><div class="plane-tail-fin"></div><div class="plane-wheel plane-wheel-1"></div><div class="plane-wheel plane-wheel-2"></div><div class="plane-propeller"></div>
             </div>
-          </div>
-
-          <div class="stars"></div>
-          <div class="cloud cloud-1"></div>
-          <div class="cloud cloud-2"></div>
-          <div class="cloud cloud-3"></div>
-          <div class="cloud cloud-4"></div>
-          <div class="cloud cloud-5"></div>
-
-          <div class="horizon-glow"></div>
-          <div class="sea"></div>
-          <div class="sea-reflection"></div>
-
-          <div class="carrier skin-carrier-standard" id="carrier">
-            <div class="ship-body"></div>
-            <div class="ship-bow"></div>
-            <div class="ship-runway"></div>
-            <div class="ship-island"></div>
-            <div class="ship-bridge"></div>
-            <div class="ship-radar"></div>
-            <div class="ship-crates crate-1"></div>
-            <div class="ship-crates crate-2"></div>
-            <div class="ship-crates crate-3"></div>
-            <div class="ship-light"></div>
-            <div class="ship-wake"></div>
-          </div>
-
-          <div class="plane-trail" id="planeTrail"></div>
-          <div class="boost-flames" id="boostFlames"></div>
-
-          <div class="plane skin-plane-classic" id="plane">
-            <div class="plane-shadow"></div>
-            <div class="plane-fuselage"></div>
-            <div class="plane-nose"></div>
-            <div class="plane-cockpit"></div>
-            <div class="plane-wing-top"></div>
-            <div class="plane-wing-bottom"></div>
-            <div class="plane-tail"></div>
-            <div class="plane-tail-fin"></div>
-            <div class="plane-wheel plane-wheel-1"></div>
-            <div class="plane-wheel plane-wheel-2"></div>
-            <div class="plane-propeller"></div>
-          </div>
-
-          <div class="bottom-boost-bar" id="bottomBoostBar">
-            <div class="boost-coin"><span class="boost-coin-icon">⚡</span></div>
-            <div class="boost-cost-pill" id="boostCostPill">500</div>
-            <div class="boost-progress-shell">
-              <div class="boost-progress-fill" id="boostProgressFill"></div>
+            <div class="bottom-boost-bar" id="bottomBoostBar">
+              <div class="boost-coin"><span class="boost-coin-icon">⚡</span></div>
+              <div class="boost-cost-pill" id="boostCostPill">500</div>
+              <div class="boost-progress-shell"><div class="boost-progress-fill" id="boostProgressFill"></div></div>
+              <div class="boost-timer-main" id="boostTimerMain">2.0s</div>
+              <div class="boost-timer-side" id="boostCooldownSide">ready</div>
             </div>
-            <div class="boost-timer-main" id="boostTimerMain">2.0s</div>
-            <div class="boost-timer-side" id="boostCooldownSide">ready</div>
+            <div class="turbo-indicator" id="turboIndicator">TURBO</div>
           </div>
-
-          <div class="turbo-indicator" id="turboIndicator">TURBO</div>
-        </div>
         </section>
 
         <div class="tabs-card shop-below-field">
@@ -106,90 +62,87 @@
             <button class="tab-btn active" data-tab="shopTab">Магазин</button>
             <button class="tab-btn" data-tab="achTab">Достижения</button>
             <button class="tab-btn" data-tab="historyTab">История</button>
+            <button class="tab-btn" data-tab="statsTab">Статистика</button>
           </div>
 
           <div id="shopTab" class="tab-content active">
             <div class="shop-section">
-              <div class="shop-title">Самолёты</div>
-              <div class="shop-grid" id="planeShop"></div>
+              <div class="shop-title">Апгрейды</div>
+              <div class="shop-grid" id="upgradesShop"></div>
             </div>
             <div class="shop-section">
-              <div class="shop-title">Авианосцы</div>
-              <div class="shop-grid" id="carrierShop"></div>
+              <div class="shop-title">Предпросмотр и витрина</div>
+              <div class="preview-showcase">
+                <div class="preview-stage" id="previewStage">
+                  <div class="preview-carrier carrier skin-carrier-standard" id="previewCarrier">
+                    <div class="ship-body"></div><div class="ship-bow"></div><div class="ship-runway"></div><div class="ship-island"></div><div class="ship-bridge"></div><div class="ship-radar"></div>
+                  </div>
+                  <div class="preview-trail plane-trail trail-smoke" id="previewTrail"></div>
+                  <div class="preview-plane plane skin-plane-classic" id="previewPlane">
+                    <div class="plane-fuselage"></div><div class="plane-nose"></div><div class="plane-cockpit"></div><div class="plane-wing-top"></div><div class="plane-wing-bottom"></div><div class="plane-tail"></div><div class="plane-tail-fin"></div><div class="plane-propeller"></div>
+                  </div>
+                </div>
+                <div class="preview-meta">
+                  <div class="preview-title" id="previewTitle">Выбери предмет в магазине</div>
+                  <div class="preview-text" id="previewText">Здесь будет большой предпросмотр скина и его редкости.</div>
+                </div>
+              </div>
             </div>
             <div class="shop-section">
-              <div class="shop-title">Следы</div>
-              <div class="shop-grid" id="trailShop"></div>
+              <div class="shop-title">Кейсы</div>
+              <div class="shop-grid" id="casesShop"></div>
             </div>
+            <div class="shop-section">
+              <div class="shop-title">Боевой пропуск</div>
+              <div class="battle-pass-track" id="battlePassTrack"></div>
+            </div>
+            <div class="shop-section">
+              <div class="shop-title">Престиж</div>
+              <div class="prestige-card">
+                <div>
+                  <div class="prestige-title" id="prestigeTitle">Престиж 0</div>
+                  <div class="preview-text" id="prestigeText">Накопи 5 000 000 монет и переродись ради постоянного бонуса к выигрышу.</div>
+                </div>
+                <button id="prestigeBtn" class="small-action buy-btn">Престиж</button>
+              </div>
+            </div>
+            <div class="shop-section"><div class="shop-title">Самолёты</div><div class="shop-grid" id="planeShop"></div></div>
+            <div class="shop-section"><div class="shop-title">Авианосцы</div><div class="shop-grid" id="carrierShop"></div></div>
+            <div class="shop-section"><div class="shop-title">Следы</div><div class="shop-grid" id="trailShop"></div></div>
           </div>
 
-          <div id="achTab" class="tab-content">
-            <div class="ach-list" id="achievementsList"></div>
-          </div>
-
-          <div id="historyTab" class="tab-content">
-            <div class="history-list" id="historyList"></div>
-          </div>
+          <div id="achTab" class="tab-content"><div class="ach-list" id="achievementsList"></div></div>
+          <div id="historyTab" class="tab-content"><div class="history-list" id="historyList"></div></div>
+          <div id="statsTab" class="tab-content"><div class="stats-grid" id="statsGrid"></div></div>
         </div>
       </section>
 
       <section class="hud">
-        <div class="stat-card">
-          <div class="label">Баланс</div>
-          <div class="value" id="balance">10000</div>
+        <div class="stat-card"><div class="label">Баланс</div><div class="value" id="balance">10000</div></div>
+        <div class="stat-card"><div class="label">Ставка</div><div class="bet-controls"><button id="betMinus" class="mini-btn">−</button><div class="value" id="bet">100</div><button id="betPlus" class="mini-btn">+</button></div></div>
+        <div class="stat-card"><div class="label">Множитель</div><div class="value" id="multiplier">x1.00</div></div>
+        <div class="stat-card"><div class="label">Текущий выигрыш</div><div class="value" id="potentialWin">0</div></div>
+        <div class="stat-card"><div class="label">Погода</div><div class="value small" id="weatherValue">clear</div></div>
+        <div class="stat-card"><div class="label">Статус</div><div class="value small" id="status">Готов к взлёту</div></div>
+        <div class="action-row two-btns"><button id="startBtn" class="start-btn">Старт</button><button id="boostBtn" class="boost-btn">Boost</button></div>
+        
+        <div class="action-row three-btns"><button id="turboBtn" class="turbo-btn">Turbo</button><button id="weatherBtn" class="secondary-btn">Сменить погоду</button><button id="soundBtn" class="secondary-btn">Звук: ON</button></div>
+        <div class="boost-panel-card"><div class="boost-panel-title">Бусты</div><div class="boost-panel-grid" id="boostPanelGrid"></div></div>
+        <div class="boost-panel-card">
+          <div class="boost-panel-title">Соперники и атмосфера</div>
+          <div class="rivals-list" id="rivalsList"></div>
+          <div class="mind-line" id="mindLine">Держись, хороший момент ещё впереди…</div>
         </div>
-
-        <div class="stat-card">
-          <div class="label">Ставка</div>
-          <div class="bet-controls">
-            <button id="betMinus" class="mini-btn">−</button>
-            <div class="value" id="bet">100</div>
-            <button id="betPlus" class="mini-btn">+</button>
+        <div class="case-overlay" id="caseOverlay">
+          <div class="case-modal">
+            <div class="case-wheel" id="caseWheel"></div>
+            <div class="case-result" id="caseResult">Открываем кейс...</div>
           </div>
         </div>
-
-        <div class="stat-card">
-          <div class="label">Множитель</div>
-          <div class="value" id="multiplier">x1.00</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="label">Текущий выигрыш</div>
-          <div class="value" id="potentialWin">0</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="label">Погода</div>
-          <div class="value small" id="weatherValue">clear</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="label">Статус</div>
-          <div class="value small" id="status">Готов к взлёту</div>
-        </div>
-
-        <div class="action-row two-btns">
-          <button id="startBtn" class="start-btn">Старт</button>
-          <button id="boostBtn" class="boost-btn">Boost</button>
-        </div>
-
-        <div class="action-row three-btns">
-          <button id="turboBtn" class="turbo-btn">Turbo</button>
-          <button id="weatherBtn" class="secondary-btn">Сменить погоду</button>
-          <button id="soundBtn" class="secondary-btn">Звук: ON</button>
-        </div>
-
-        <div class="boost-panel-card">
-          <div class="boost-panel-title">Бусты</div>
-          <div class="boost-panel-grid" id="boostPanelGrid"></div>
-        </div>
-
       </section>
     </main>
   </div>
-
   <div class="toast" id="toast"></div>
-
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
